@@ -1,35 +1,40 @@
-
 import re
 
 def add(numbers: str) -> int:
-    if not numbers:
+    if not numbers.strip():
         return 0
-    
-    delimiter = "."
-    numbers_part = numbers
+
+    delimiter = "," 
+    numbers_part = numbers 
 
     if numbers.startswith('//'):
-        delimeter_line , numbers_part = numbers.split('\n',1)
-        delimiter = delimeter_line[2:]
+        delimiter_line, numbers_part = numbers.split('\n', 1)
+        delimiter = delimiter_line[2:]
         delimiter = re.escape(delimiter)
 
-    numbers_part = numbers_part.replace('\n',delimiter)
-    numbers_string = re.split(delimiter,numbers_part)
-    neagatives = []
-    total = 0
+    numbers_part = numbers_part.replace('\n', delimiter)
 
-    for num_str in numbers_string:
+    numbers_list = re.split(delimiter, numbers_part)
+    
+    negatives = [] 
+    total = 0 
+
+    for num_str in numbers_list:
         if not num_str.strip():
             continue
-        num = int (num_str)
+        
+        num = int(num_str) 
 
-    if num < 0 :
-        neagatives.append(str(num))
-    total += num
+        if num < 0:
+            negatives.append(str(num)) 
+        else:
+           
+            total += num
 
-    if neagatives :
-        raise ValueError (f"negative no not allow {'/'.join(neagatives)}")
-    return total
+    if negatives:
+        raise ValueError(f"negative numbers not allowed {', '.join(negatives)}")
+        
+    return total 
 
 
 
