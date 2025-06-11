@@ -27,4 +27,13 @@ class TestStringCalci (unittest.TestCase):
         self.assertEqual(add("//|\n1|2|3"), 6)
         self.assertEqual(add("//sep\n2sep5"), 7)
         self.assertEqual(add("//*\n1*2*3"), 6)
+
+    def test_negative_numbers_throw_exception(self):
+       with self.assertRaises(ValueError) as context:
+            add("-1,2")
+       self.assertEqual(str(context.exception), "negative numbers not allowed -1")
+        
+       with self.assertRaises(ValueError) as context:
+            add("2,-4,3,-5")
+       self.assertEqual(str(context.exception), "negative numbers not allowed -4, -5")
     
