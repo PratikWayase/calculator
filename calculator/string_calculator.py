@@ -23,6 +23,15 @@ def add(numbers: str) -> int:
             continue
         num = int (num_str)
 
+    if num < 0 :
+        neagatives.append(str(num))
+    total += num
+
+    if neagatives :
+        raise ValueError (f"negative no not allow {'/'.join(neagatives)}")
+    return total
+
+
 
 
 
