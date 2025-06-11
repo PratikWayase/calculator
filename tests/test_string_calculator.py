@@ -36,4 +36,9 @@ class TestStringCalci (unittest.TestCase):
        with self.assertRaises(ValueError) as context:
             add("2,-4,3,-5")
        self.assertEqual(str(context.exception), "negative numbers not allowed -4, -5")
+
+    def test_special_regex_delimiters(self):
+        self.assertEqual(add("//.\n1.2.3"), 6)
+        self.assertEqual(add("//$\n1$2$3"), 6)
+        self.assertEqual(add("//||\n1||2||3"), 6)
     
