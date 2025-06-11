@@ -21,3 +21,10 @@ class TestStringCalci (unittest.TestCase):
     def test_newlines_as_delimiters(self):
         self.assertEqual(add("1\n2,3"), 6)
         self.assertEqual(add("4\n5\n6"), 15)
+
+    def test_custom_delimiters(self):
+        self.assertEqual(add("//;\n1;2"), 3)
+        self.assertEqual(add("//|\n1|2|3"), 6)
+        self.assertEqual(add("//sep\n2sep5"), 7)
+        self.assertEqual(add("//*\n1*2*3"), 6)
+    
