@@ -17,3 +17,7 @@ class TestStringCalci (unittest.TestCase):
     def test_any_amount_of_numbers(self):
         self.assertEqual(add("1,2,3,4,5"), 15)
         self.assertEqual(add("10,20,30,40"), 100)
+
+    def test_newlines_as_delimiters(self):
+        self.assertEqual(add("1\n2,3"), 6)
+        self.assertEqual(add("4\n5\n6"), 15)
