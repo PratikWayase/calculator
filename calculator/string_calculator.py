@@ -13,4 +13,16 @@ def add(numbers: str) -> int:
         delimiter = delimeter_line[2:]
         delimiter = re.escape(delimiter)
 
+    numbers_part = numbers_part.replace('\n',delimiter)
+    numbers_string = re.split(delimiter,numbers_part)
+    neagatives = []
+    total = 0
+
+    for num_str in numbers_string:
+        if not num_str.strip():
+            continue
+        num = int (num_str)
+
+
+
 
