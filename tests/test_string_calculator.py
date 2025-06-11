@@ -13,3 +13,7 @@ class TestStringCalci (unittest.TestCase):
     def test_two_numbers_comma_delimited_returns_sum(self):
         self.assertEqual(add("1,5"), 6)
         self.assertEqual(add("10,20"), 30)
+    
+    def test_any_amount_of_numbers(self):
+        self.assertEqual(add("1,2,3,4,5"), 15)
+        self.assertEqual(add("10,20,30,40"), 100)
